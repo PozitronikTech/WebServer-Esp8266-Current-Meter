@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+  Mustafa DUT
+  
+-->
+<html>
+<head>
+  <title>Power Meter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="power-meter"><h1>Power Meter</h1> </div>
+
+  <div class="card-container ">
+
+    <div class="card">
+      <h3 class="card-title">Solar Panel</h3>
+      <div id="gauge1" class="gauge-container"></div>
+      <div class="container">
+
+        <h2><b><span id="voltage1" class="red-text">%VOLTAGE1%</span></b> V</h2>
+        <h2><b><span id="current1" class="red-text">%CURRENT1%</span></b> mA</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Battery</h3>
+      <div id="gauge2" class="gauge-container"></div>
+      <div class="container">
+        <h2><b><span id="voltage2" class="red-text">%VOLTAGE2%</span></b> V</h2>
+        <h2><b><span id="current2" class="red-text">%CURRENT2%</span></b> mA</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Output</h3>
+      <div id="gauge3" class="gauge-container"></div>
+      <div class="container">
+        <h2><b><span id="voltage3" class="red-text">%VOLTAGE3%</span></b> V</h2>
+        <h2><b><span id="current3" class="red-text">%CURRENT3%</span></b> mA</h2>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script>
+    !function(e){var t,o,F,S,n=(o=(t=e).document,F=Array.prototype.slice,S=t.requestAnimationFrame||t.mozRequestAnimationFrame||t.webkitRequestAnimationFrame||t.msRequestAnimationFrame||function(e){return setTimeout(e,1e3/60)},function(){var r="http://www.w3.org/2000/svg",M={centerX:50,centerY:50},k={dialRadius:40,dialStartAngle:135,dialEndAngle:45,value:0,max:100,min:0,valueDialClass:"value",valueClass:"value-text",dialClass:"dial",gaugeClass:"gauge",showValue:!0,gaugeColor:null,label:function(e){return Math.round(e)}};function V(e,t,n){var a=o.createElementNS(r,e);for(var i in t)a.setAttribute(i,t[i]);return n&&n.forEach(function(e){a.appendChild(e)}),a}function R(e,t){return e*t/100}function E(e,t,n){return e}function q(e,t,n,a){var i=a*Math.PI/180;return{x:Math.round(1e3*(e+n*Math.cos(i)))/1e3,y:Math.round(1e3*(t+n*Math.sin(i)))/1e3}}return function(e,r){r=function(){var n=arguments[0];return F.call(arguments,1).forEach(function(e){for(var t in e)e.hasOwnProperty(t)&&(n[t]=e[t])}),n}({},k,r);var o,l,t,n=e,s=r.max,u=r.min,a=E(r.value,u,s),c=r.dialRadius,d=r.showValue,f=r.dialStartAngle,v=r.dialEndAngle,i=r.valueDialClass,m=r.valueClass,g=(r.valueLabelClass,r.dialClass),h=r.gaugeClass,p=r.color,w=r.label,x=r.viewBox;if(f<v){console.log("WARN! startAngle < endAngle, Swapping");var A=f;f=v,v=A}function y(e,t,n,a){var i=function(e,t,n){var a=M.centerX,i=M.centerY;return{end:q(a,i,e,n),start:q(a,i,e,t)}}(e,t,n),r=i.start,o=i.end,l=void 0===a?1:a;return["M",r.x,r.y,"A",e,e,0,l,1,o.x,o.y].join(" ")}function b(e,t){var n=function(e,t,n){return 100*(e-t)/(n-t)}(e,u,s),a=R(n,360-Math.abs(f-v)),i=a<=180?0:1;d&&(o.textContent=w.call(r,e)),l.setAttribute("d",y(c,f,a+f,i))}function C(e,t){var n=p.call(r,e),a=1e3*t,i="stroke "+a+"ms ease";l.style.stroke=n,l.style["-webkit-transition"]=i,l.style["-moz-transition"]=i,l.style.transition=i}return t={setMaxValue:function(e){s=e},setValue:function(e){a=E(e,u,s),p&&C(a,0),b(a)},setValueAnimated:function(e,t){var n=a;a=E(e,u,s),n!==a&&(p&&C(a,t),function(e){var t=e.duration,a=1,i=60*t,r=e.start||0,o=e.end-r,l=e.step,s=e.easing||function(e){return(e/=.5)<1?.5*Math.pow(e,3):.5*(Math.pow(e-2,3)+2)};S(function e(){var t=a/i,n=o*s(t)+r;l(n,a),a+=1,t<1&&S(e)})}({start:n||0,end:a,duration:t||1,step:function(e,t){b(e,t)}}))},getValue:function(){return a}},function(e){o=V("text",{x:50,y:50,fill:"#999",class:m,"font-size":"100%","font-family":"sans-serif","font-weight":"normal","text-anchor":"middle","alignment-baseline":"middle","dominant-baseline":"central"}),l=V("path",{class:i,fill:"none",stroke:"#666","stroke-width":2.5,d:y(c,f,f)});var t=R(100,360-Math.abs(f-v)),n=V("svg",{viewBox:x||"0 0 100 100",class:h},[V("path",{class:g,fill:"none",stroke:"#eee","stroke-width":2,d:y(c,f,v,t<=180?0:1)}),V("g",{class:"text-container"},[o]),l]);e.appendChild(n)}(n),t.setValue(a),t}}());"function"==typeof define&&define.amd?define(function(){return n}):"object"==typeof module&&module.exports?module.exports=n:e.Gauge=n}("undefined"==typeof window?this:window);
+
+
+  setInterval(function ( ) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var channel1 = JSON.parse(this.responseText);
+        if(channel1.voltage.toFixed(2) <= 0.05){
+          document.getElementById("voltage1").innerHTML = 0;
+          document.getElementById("current1").innerHTML = 0;
+        }
+        else {
+          document.getElementById("voltage1").innerHTML = channel1.voltage.toFixed(2);
+          document.getElementById("current1").innerHTML = channel1.current.toFixed(2);
+        }
+        gauge1.setValue(channel1.power.toFixed(2)); 
+      }
+    };
+    xhttp.open("GET", "/channel1", true);
+    xhttp.send();
+  }, 500 ) ;
+
+  setInterval(function ( ) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var channel2 = JSON.parse(this.responseText);
+        if(channel2.voltage.toFixed(2) <= 0.05){
+          document.getElementById("voltage2").innerHTML = 0;
+          document.getElementById("current2").innerHTML = 0;
+        }
+        else {
+          document.getElementById("voltage2").innerHTML = channel2.voltage.toFixed(2);
+          document.getElementById("current2").innerHTML = channel2.current.toFixed(2);
+        }
+        gauge2.setValue(channel2.power.toFixed(2));
+      }
+    };
+    xhttp.open("GET", "/channel2", true);
+    xhttp.send();
+  }, 500 ) ;
+
+  setInterval(function ( ) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var channel3 = JSON.parse(this.responseText);
+        if(channel3.voltage.toFixed(2) <= 0.05){
+          document.getElementById("voltage3").innerHTML = 0;
+          document.getElementById("current3").innerHTML = 0;
+        }
+        else {
+          document.getElementById("voltage3").innerHTML = channel3.voltage.toFixed(2);
+          document.getElementById("current3").innerHTML = channel3.current.toFixed(2);
+        }
+        gauge3.setValue(channel3.power.toFixed(2));
+      }
+    };
+    xhttp.open("GET", "/channel3", true);
+    xhttp.send();
+  }, 500 ) ;
+
+  var gauge1 = Gauge(
+    document.getElementById("gauge1"),
+    {
+      min: 0,
+      max: 65,
+      value: 0,
+      color: getColor,
+      label: function(value) {
+        if(value == 0 && value == 0.00){
+          return 0 + " W";
+        }
+        return value + " W";
+      }
+    }
+  );
+
+  
+  var gauge2 = Gauge(
+    document.getElementById("gauge2"),
+    {
+      min:0,
+      max: 65,
+      value: 0,
+      color: getColor,
+      label: function(value) {
+        if(value == 0 && value == 0.00){
+          return 0 + " W";
+        }
+        return value + " W";
+      }
+    }
+  );
+
+  var gauge3 = Gauge(
+    document.getElementById("gauge3"),
+    {
+      min: 0,
+      max: 65,
+      value: 0,
+      color: getColor,
+      label: function(value) {
+        if(value == 0 && value == 0.00){
+          return 0 + " W";
+        }
+        return value + " W";
+      }
+    }
+  );
+
+  function getColor(value) {
+    if(value < 10) {
+      return "#5ee432";
+    } else if(value < 30) {
+      return "#fffa50";
+    } else if(value < 50) {
+      return "#f7aa38";
+    } else {
+      return "#ef4655";
+    }
+  }
+
+</script>
+</html>

@@ -1,0 +1,76 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 70px;
+  }
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  overflow: hidden;
+  margin: 10px;
+  border: 1px solid black;
+  width: 300px; /* Genişlik */
+  border-radius: 10px;
+
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    flex-direction: column;
+  }
+  
+  .power-meter h1 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .power-meter {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+}
+
+.gauge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.power-meter {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+}
+
+.red-text {
+  color: red;
+}
+
+
+.gauge-container > .gauge .value-text {
+  fill: rgb(178, 60, 222);
+  font-family: sans-serif;
+  font-size: .9em;
+}
