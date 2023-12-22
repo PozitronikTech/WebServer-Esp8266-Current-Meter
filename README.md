@@ -10,7 +10,7 @@ The aim is to store and use javascript, html and css files with SPIFFS in a stor
 - To upload the spiffs file with the Arduino ide, you need to use the old Arduino ide.
 
 # Design
-- You can also access a link made by Kemal Şahin for the visual design section.
+- You can also access a link made by __Kemal Şahin__ for the visual design section.
 
 - https://grabcad.com/library/power-meter-lolin-esp8266-1
 
