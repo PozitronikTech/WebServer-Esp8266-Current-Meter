@@ -9,6 +9,9 @@ The aim is to store and use javascript, html and css files with SPIFFS in a stor
 - Built for Esp8266.
 - To upload the spiffs file with the Arduino ide, you need to use the old Arduino ide.
 
+# Scheme
+https://oshwlab.com/MustafaDUT/ak-m-l-er
+
 # Design
 - You can also access a link made by __Kemal Şahin__ for the visual design section.
 
